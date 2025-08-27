@@ -4,281 +4,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación Brenda & Guillermo</title>
-    <!-- Fuentes y Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Swiper.js -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lucide/dist/lucide.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <title>Invitación</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            /* -----------------------
+       ELIGE EL FONDO AQUÍ
+       ----------------------- */
+            background-color: #d4a879;
+            /* gris de base */
+            background-image: url('./imagen/marco.png');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            /* mantiene proporción */
+        }
+        
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        /* Imagen central responsiva */
+        
+        .container img {
+            width: 40vw;
+            /* máximo 50% del ancho de la ventana */
+            max-width: 250px;
+            /* nunca más de 250px de ancho */
+            height: auto;
+            /* mantiene proporción */
+            border-radius: 10px;
+            margin-bottom: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Botón dorado degradado */
+        
+        .container button {
+            padding: 12px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: linear-gradient(to right, #ffffff, #ff1493);
+            transition: 0.3s;
+        }
+        
+        .container button:hover {
+            background: linear-gradient(to right, #fdfdfd, #ff1493);
+        }
+        /* Sección de invitación responsiva */
+        
+        .invitacion {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            max-width: 90vw;
+            /* se adapta a móviles */
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .invitacion.show {
+            display: block;
+            opacity: 1;
+        }
+        
+        .boton-dorado {
+            display: inline-block;
+            padding: 12px 35px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: linear-gradient(to right, #d4a879, #d4a879);
+            transition: 0.3s;
+            text-align: center;
+        }
+        
+        .boton-dorado:hover {
+            background: linear-gradient(to right, #d4a879, #d4a879);
+        }
+    </style>
 </head>
 
 <body>
+    <div class="container">
+        <!-- Imagen central opcionalmente clicable -->
+        <a href="invitacion.html">
+            <img src="./imagen/sobreblanco.png" alt="Invitación">
+        </a>
 
-    <!-- Portada -->
-    <section class="portada section">
-        <div class="overlay">
-            <h1>Brenda & Guillermo</h1>
-            <p>8 de Octubre 2025</p>
-        </div>
-    </section>
+        <br>
 
-    <!-- Invitado -->
-    <section class="invitado section">
-        <h2>Apreciable</h2>
+        <!-- Botón dorado que lleva a otra página -->
+        <a href="invitacion.html" class="boton-dorado">Ver invitación</a>
 
-        <p class="mensaje">Es un honor contar con tu presencia en este día tan especial. ¡Te esperamos!</p>
-
-    </section>
-
-    <!-- Novios -->
-    <section class="novios section">
-        <h2>Los Novios</h2>
-        <div class="novio-card">
-            <img src="imagen/novia.jpg" alt="Brenda">
-            <h3>Brenda</h3>
-        </div>
-        <div class="novio-card">
-            <img src="imagen/novio.jpg" alt="Guillermo">
-            <h3>Guillermo</h3>
-        </div>
-    </section>
-
-    <!-- Countdown -->
-    <section class="countdown section">
-        <h2>Faltan para el gran día</h2>
-        <div class="timeline">
-            <div class="circle">
-                <span id="dias">0</span>
-                <small>Días</small>
-            </div>
-            <div class="line"></div>
-            <div class="circle">
-                <span id="horas">0</span>
-                <small>Horas</small>
-            </div>
-            <div class="line"></div>
-            <div class="circle">
-                <span id="minutos">0</span>
-                <small>Minutos</small>
-            </div>
-            <div class="line"></div>
-            <div class="circle">
-                <span id="segundos">0</span>
-                <small>Segundos</small>
-            </div>
-        </div>
-        <button class="calendario">Añadir al Calendario</button>
-    </section>
-
-    <!-- Itinerario -->
-    <section class="itinerario section">
-        <h2>Itinerario</h2>
-        <div class="event">
-            <span class="icon"><i class="fa-regular fa-clock"></i></span>
-            <div class="event-info">
-                <strong>Reunión previa</strong>
-                <p>4:00 PM</p>
-            </div>
-        </div>
-        <div class="event">
-            <span class="icon"><i class="fa-solid fa-person-walking"></i></span>
-            <div class="event-info">
-                <strong>Caminata a la iglesia</strong>
-                <p>5:30 PM</p>
-            </div>
-        </div>
-        <div class="event">
-            <span class="icon"><i class="fa-solid fa-church"></i></span>
-            <div class="event-info">
-                <strong>Ceremonia religiosa</strong>
-                <p>6:00 PM</p>
-            </div>
-        </div>
-        <div class="event">
-            <span class="icon"><i class="fa-solid fa-glass-cheers"></i></span>
-            <div class="event-info">
-                <strong>Recepción</strong>
-                <p>7:00 PM</p>
-            </div>
-        </div>
-    </section>
-    <section class="carrusel section">
-        <h2>Mis Recuerdos</h2>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="imagen/bride-1837148_640.jpg" alt="Foto 1">
-                    <div class="caption">Primera cita</div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="imagen/shoes-8070908_640.jpg" alt="Foto 2">
-                    <div class="caption">Fiesta de compromiso</div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="imagen/wedding-6787691_1280.jpg" alt="Foto 3">
-                    <div class="caption">Viaje inolvidable</div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="imagen/wedding-6873668_640.jpg" alt="Foto 4">
-                    <div class="caption">Recuerdos familiares</div>
-                </div>
-            </div>
-            <!-- Paginación -->
-            <div class="swiper-pagination"></div>
-        </div>
-
-        <!-- Miniaturas -->
-        <div class="swiper mySwiperThumbs">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="imagen/bride-1837148_640.jpg" alt="Mini 1"></div>
-                <div class="swiper-slide"><img src="imagen/shoes-8070908_640.jpg" alt="Mini 2"></div>
-                <div class="swiper-slide"><img src="imagen/wedding-6787691_1280.jpg" alt="Mini 3"></div>
-                <div class="swiper-slide"><img src="imagen/wedding-6873668_640.jpg" alt="Mini 4"></div>
-            </div>
-        </div>
-    </section>
-
-    <!--Ubicacion-->
-    <section class="ubicacion" id="ubicacion">
-        <h2 class="titulo-seccion">Ubicación</h2>
-
-        <div class="lugar">
-            <img src="imagen/iglesia uman.webp" alt="Ceremonia" class="imagen-lugar">
-            <div class="info-lugar">
-                <h3>Ceremonia</h3>
-                <p>Iglesia de San Francisco de Asis<br>Dirección completa aquí</p>
-                <a href="https://share.google/ayaso8UrEn1Uiv1CV" target="_blank" class="btn-maps">
-        Ver en Google Maps
-      </a>
-            </div>
-        </div>
-
-        <div class="lugar reverse">
-            <img src="imagen/local camilo.jpg" alt="Recepción" class="imagen-lugar">
-            <div class="info-lugar">
-                <h3>Recepción</h3>
-                <p>Local Camilo<br>Dirección completa aquí</p>
-                <a href="hhttps://maps.app.goo.gl/PWJiKp6SKeVPUFo26" target="_blank" class="btn-maps">
-        Ver en Google Maps
-      </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dresscode -->
-    <section class="seccion" id="dresscode">
-        <h2 class="titulo-seccion">Dress Code</h2>
-
-        <div class="dresscode-contenedor">
-            <!-- Mujeres -->
-            <div class="dresscode-item">
-                <img src="imagen/vestido-de-novia (1).png" alt="Vestido" class="icono-dresscode">
-                <p>Mujeres: Vestido largo</p>
-            </div>
-
-            <!-- Hombres -->
-            <div class="dresscode-item">
-                <img src="imagen/traje.png" alt="Traje" class="icono-dresscode">
-                <p>Hombres: Traje oscuro</p>
-            </div>
-        </div>
-
-        <!-- Separador dorado -->
-        <div class="separador-contenedor">
-            <div class="linea"></div>
-        </div>
-    </section>
-
-    <!-- Mesa de Regalos -->
-    <section class="seccion" id="regalos">
-        <h2 class="titulo-seccion">Mesa de Regalos</h2>
-
-        <div class="regalos-contenedor">
-            <div class="regalos-item">
-                <img src="imagen/regalo (1).png" alt="Regalo" class="icono-regalo">
-                <p>Puedes apoyarnos con tu regalo con la lluvia de sobres ✉</p>
-                <a href="imagen/Cuenta.txt" download class="btn-descarga">Descargar info</a>
-            </div>
-        </div>
-
-        <!-- Separador dorado -->
-        <div class="separador-contenedor">
-            <div class="linea"></div>
-        </div>
-    </section>
-    <section class="seccion" id="confirmar">
-        <h2 class="titulo-seccion">Confirma tu asistencia</h2>
-
-        <div class="confirmar-contenedor">
-            <p>Haz clic en el icono para confirmar tu asistencia por WhatsApp:</p>
-            <a href="https://wa.me/5211234567890?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20la%20boda." target="_blank" class="icono-whatsapp">
-                <img src="imagen/whatsapp (2).png" alt="WhatsApp">
-            </a>
-        </div>
-
-        <!-- Separador dorado -->
-        <div class="separador-contenedor">
-            <div class="linea"></div>
-        </div>
-    </section>
-
-    <!-- Botón de música flotante -->
-    <div id="boton-musica" class="boton-musica">
-        <div class="barra"></div>
-        <div class="barra"></div>
-        <div class="barra"></div>
-        <div class="barra"></div>
+        <!-- Ya no se necesita la sección invitación ni el script -->
     </div>
-
-    <audio id="audio" src="musica/You re Beautiful (James Blunt) Wedding String Quartet (256 KBps).mp3" loop></audio>
-    <!-- Inicializar lucide -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            lucide.replace();
-        });
-    </script>
-
-    <script>
-        const swiperThumbs = new Swiper(".mySwiperThumbs", {
-            spaceBetween: 10,
-            slidesPerView: 4,
-            watchSlidesProgress: true,
-            breakpoints: {
-                0: {
-                    slidesPerView: 2
-                },
-                500: {
-                    slidesPerView: 4
-                }
-            }
-        });
-
-        const swiperMain = new Swiper(".mySwiper", {
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            effect: "fade",
-            fadeEffect: {
-                crossFade: true
-
-            },
-            speed: 4000,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            thumbs: {
-                swiper: swiperThumbs
-            }
-        });
-    </script>
-
-    <script src="script.js"></script>
 </body>
 
-</html>
+</html
