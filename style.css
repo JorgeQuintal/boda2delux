@@ -1,0 +1,1026 @@
+/* Fuentes y reset */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff9f5;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+
+/* Tipografía elegante */
+
+h1,
+h2,
+h3 {
+    font-family: 'Great Vibes', cursive;
+    color: #d4a879;
+    text-align: center;
+}
+
+
+/* Portada */
+
+.portada {
+    background: url('novios.webp') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.portada .overlay {
+    background-color: rgba(0, 0, 0, 0.048);
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    /* Animación de entrada */
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 1s ease-out;
+}
+
+.portada.visible .overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Título principal */
+
+.portada .overlay h1 {
+    font-size: 5rem;
+    /* tamaño grande */
+    font-weight: bold;
+    line-height: 1.1;
+    font-family: 'Playfair Display', serif;
+    /* elegante */
+    text-transform: uppercase;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    margin-bottom: 1rem;
+}
+
+
+/* Fecha o subtítulo */
+
+.portada .overlay p {
+    font-size: 1.8rem;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Responsivo para móviles */
+
+@media (max-width: 768px) {
+    .portada .overlay h1 {
+        font-size: 3rem;
+    }
+    .portada .overlay p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .portada .overlay {
+        padding: 1.5rem 2rem;
+    }
+    .portada .overlay h1 {
+        font-size: 2.2rem;
+    }
+    .portada .overlay p {
+        font-size: 1rem;
+    }
+}
+
+
+/* Invitado */
+
+.invitado {
+    padding: 3rem 1rem;
+    text-align: center;
+    background-color: #fdf2ec;
+}
+
+.invitado .qr {
+    width: 150px;
+    border: 3px solid #e6c3a0;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+
+/* Novios */
+
+.novios {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 3rem 1rem;
+}
+
+.novio-card img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid #e6c3a0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.novio-card img:hover {
+    transform: scale(1.12);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.novio-card h3 {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    color: #d4a879;
+}
+
+
+/* Countdown */
+
+.countdown {
+    padding: 3rem 1rem;
+    text-align: center;
+    background-color: #fdf2ec;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: linear-gradient(145deg, #fff5ef, #fff9f5);
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card span {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.card small {
+    display: block;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.countdown button {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    background-color: #e6c3a0;
+    border-radius: 12px;
+    color: white;
+    margin-top: 1rem;
+    transition: background 0.3s;
+}
+
+.countdown button:hover {
+    background-color: #d4a879;
+}
+
+
+/* Itinerario (ya estilizado) */
+
+.itinerario {
+    padding: 3rem 1rem;
+    background-color: #fff;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.itinerario .event {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 5px solid #d4a879;
+    border-radius: 20px;
+    background: #fffdf8;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.itinerario .event:hover {
+    transform: translateX(5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.itinerario .icon {
+    font-size: 2rem;
+    color: #d4a879;
+    width: 40px;
+    text-align: center;
+}
+
+.event-info strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.event-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+
+/* Responsive */
+
+@media (max-width: 500px) {
+    .novios {
+        flex-direction: column;
+        align-items: center;
+    }
+    .timer {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+
+/* Contador tipo timeline */
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin: 2rem 0;
+}
+
+.circle {
+    background-color: #fff5ef;
+    border: 3px solid #d4a879;
+    color: #d4a879;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    margin: 0.5rem 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.circle small {
+    font-size: 0.8rem;
+    font-weight: normal;
+    color: #555;
+    margin-top: 0.2rem;
+}
+
+.line {
+    width: 4px;
+    height: 30px;
+    background-color: #d4a879;
+    z-index: 0;
+    margin: -5px 0;
+    /* se ajusta para unir bien los círculos */
+}
+
+
+/* Opcional: animación de bounce para números */
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.circle span {
+    display: block;
+    animation: bounce 1s infinite;
+}
+
+
+/* Responsive */
+
+@media (max-width: 500px) {
+    .timeline {
+        flex-direction: column;
+    }
+    .line {
+        height: 20px;
+    }
+    .circle {
+        width: 70px;
+        height: 70px;
+        font-size: 1.3rem;
+    }
+}
+
+.itinerario {
+    padding: 3rem 1rem;
+    background-color: #fff;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.itinerario h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #d4a879;
+}
+
+.event {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 5px solid #d4a879;
+    border-radius: 20px;
+    background: #fffdf8;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event:hover {
+    transform: translateX(5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+    font-size: 2rem;
+    color: #d4a879;
+    width: 40px;
+    text-align: center;
+}
+
+.event-info strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.event-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+
+/* Miniaturas */
+
+.mySwiperThumbs {
+    width: 90%;
+    max-width: 500px;
+    margin: 1rem auto 0 auto;
+}
+
+.mySwiperThumbs .swiper-slide {
+    width: 80px;
+    height: 50px;
+    opacity: 0.6;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #d4a879;
+    transition: all 0.3s;
+}
+
+.mySwiperThumbs .swiper-slide-thumb-active {
+    opacity: 1;
+    border: 3px solid #e6c3a0;
+}
+
+.mySwiperThumbs img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* ========== Contenedor general ========== */
+
+.swiper {
+    width: 90%;
+    max-width: 520px;
+    margin: 1.2rem auto;
+    border-radius: 22px;
+    overflow: visible;
+    /* overflow visible para que caption no se corte */
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Asegurar que wrapper y slides estén centrados */
+
+.swiper .swiper-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* para posicionar caption */
+    padding: 8px 12px;
+    box-sizing: border-box;
+}
+
+
+/* Imagen principal: centrada y con borde dorado */
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 320px;
+    /* ajusta altura si quieres */
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 5px solid #d4a879;
+    /* borde dorado */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    margin: 0 auto;
+}
+
+
+/* Caption elegante centrado sobre la imagen */
+
+.caption {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background-color: rgba(212, 168, 121, 0.86);
+    color: #fff;
+    padding: 0.45rem 0.9rem;
+    border-radius: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(.2, .9, .3, 1), opacity 0.6s;
+    pointer-events: none;
+}
+
+
+/* Mostrar caption solo en slide activo */
+
+.swiper-slide-active .caption {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+
+/* Evitar que se vean otros textos (nombres de archivo o etiquetas no deseadas) */
+
+.swiper .swiper-slide>h1,
+.swiper .swiper-slide>h2,
+.swiper .swiper-slide>h3,
+.swiper .swiper-slide>p,
+.swiper .swiper-slide .filename,
+.swiper .swiper-slide .title {
+    display: none !important;
+}
+
+
+/* Paginación centrada */
+
+.swiper-pagination {
+    text-align: center;
+    margin-top: 12px;
+}
+
+
+/* Miniaturas (thumbs) centradas y elegantes */
+
+.mySwiperThumbs {
+    width: 90%;
+    max-width: 520px;
+    margin: 0.7rem auto 0 auto;
+}
+
+.mySwiperThumbs .swiper-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mySwiperThumbs .swiper-slide {
+    width: 80px !important;
+    height: 52px;
+    opacity: 0.6;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #d4a879;
+    margin-right: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.25s, opacity 0.25s, border 0.25s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mySwiperThumbs .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.mySwiperThumbs .swiper-slide-thumb-active {
+    opacity: 1;
+    transform: translateY(-4px);
+    border: 3px solid #e6c3a0;
+}
+
+
+/* Responsive: disminuir altura y tamaños en móviles */
+
+@media (max-width: 520px) {
+    .swiper-slide img {
+        height: 260px;
+    }
+    .caption {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+        bottom: 12px;
+    }
+    .mySwiperThumbs .swiper-slide {
+        width: 64px;
+        height: 44px;
+    }
+}
+
+.carrusel {
+    margin: 3rem 0;
+    /* separa el carrusel de otras secciones */
+    padding-top: 2rem;
+    position: relative;
+    background-color: #fdf2ec;
+}
+
+.carrusel::before {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #d4a879, transparent);
+    margin: 0 auto 2rem auto;
+    /* centrado con margen inferior */
+    border-radius: 2px;
+}
+
+.ubicacion {
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.titulo-seccion {
+    font-size: 2rem;
+    font-family: 'Great Vibes', cursive;
+    color: #d4a879;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.lugar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+    gap: 1.5rem;
+}
+
+.imagen-lugar {
+    width: 90%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.info-lugar {
+    max-width: 450px;
+}
+
+.info-lugar h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.info-lugar p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.btn-maps {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    background: linear-gradient(135deg, #d4a879, #d4a879);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.btn-maps:hover {
+    transform: scale(1.05);
+}
+
+
+/* ------- Desktop ------- */
+
+@media (min-width: 768px) {
+    .lugar {
+        flex-direction: row;
+        justify-content: center;
+        text-align: left;
+    }
+    .lugar.reverse {
+        flex-direction: row-reverse;
+        text-align: right;
+    }
+    .imagen-lugar {
+        flex: 1;
+    }
+    .info-lugar {
+        flex: 1;
+        padding: 1rem 2rem;
+    }
+}
+
+.lugar::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #d4af37, transparent);
+    margin: 2rem auto 0 auto;
+    border-radius: 2px;
+}
+
+
+/* Para que no aparezca el separador debajo del último bloque (recepción) */
+
+.lugar:last-child::after {
+    display: none;
+}
+
+
+/* Separador dorado para secciones principales */
+
+.seccion {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.titulo-seccion {
+    font-size: 2rem;
+    font-family: 'Great Vibes', cursive;
+    color: #d4af37;
+    margin-bottom: 1rem;
+}
+
+.separador-contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 2rem auto 0 auto;
+}
+
+.linea {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #d4af37, transparent);
+    border-radius: 2px;
+}
+
+.icono-separador {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* Texto */
+
+.seccion p {
+    font-size: 1rem;
+    color: #555;
+}
+
+
+/* Opcional: hover efecto en icono */
+
+.icono-separador:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+.seccion {
+    text-align: center;
+    margin: 3rem 0;
+    background-color: #fdf2ec;
+}
+
+.titulo-seccion {
+    font-size: 2rem;
+    font-family: 'Great Vibes', cursive;
+    color: #d4a879;
+    /* tu dorado exacto */
+    margin-bottom: 2rem;
+}
+
+
+/* Contenedor Dresscode */
+
+.dresscode-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.dresscode-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icono-dresscode {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.5rem;
+}
+
+
+/* Texto */
+
+.dresscode-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+
+/* Separador dorado */
+
+.separador-contenedor {
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto 0 auto;
+}
+
+.linea {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #d4a879, transparent);
+    border-radius: 2px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 600px) {
+    .dresscode-contenedor {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+.icono-dresscode,
+.icono-regalo {
+    width: 48px;
+    height: 48px;
+    /* Filtro para aproximar tu dorado #d4a879 */
+    filter: invert(87%) sepia(21%) saturate(340%) hue-rotate(4deg) brightness(98%) contrast(95%);
+}
+
+
+/* Contenedor Mesa de Regalos */
+
+.regalos-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.regalos-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Icono dorado con filtro */
+
+.icono-regalo {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.5rem;
+    filter: invert(87%) sepia(21%) saturate(340%) hue-rotate(4deg) brightness(98%) contrast(95%);
+}
+
+
+/* Texto */
+
+.regalos-item p {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+
+/* Botón de descarga */
+
+.btn-descarga {
+    padding: 0.5rem 1rem;
+    background-color: #d4a879;
+    /* dorado */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.btn-descarga:hover {
+    background-color: #b89d5f;
+    /* dorado más oscuro */
+}
+
+
+/* Separador dorado */
+
+.separador-contenedor {
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto 0 auto;
+}
+
+.linea {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #d4a879, transparent);
+    border-radius: 2px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 600px) {
+    .regalos-contenedor {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+.confirmar-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.confirmar-contenedor p {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+}
+
+
+/* Icono WhatsApp dorado */
+
+.icono-whatsapp img {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    /* Filtro dorado */
+    filter: invert(87%) sepia(21%) saturate(340%) hue-rotate(4deg) brightness(98%) contrast(95%);
+    transition: transform 0.2s ease;
+}
+
+.icono-whatsapp img:hover {
+    transform: scale(1.1);
+}
+
+
+/* Separador dorado */
+
+.separador-contenedor {
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto 0 auto;
+}
+
+.linea {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #d4a879, transparent);
+    border-radius: 2px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 600px) {
+    .confirmar-contenedor {
+        gap: 0.8rem;
+    }
+}
+
+.boton-musica {
+    position: fixed;
+    /* siempre flotando */
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 3px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.boton-musica .barra {
+    width: 3px;
+    height: 20px;
+    background-color: #d4a879;
+    /* dorado de tu temática */
+    animation: bounce 1s infinite;
+    border-radius: 2px;
+    animation-play-state: paused;
+    /* empieza pausado */
+}
+
+.boton-musica .barra:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.boton-musica .barra:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.boton-musica .barra:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.boton-musica .barra:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        height: 20px;
+    }
+    50% {
+        height: 40px;
+    }
+}
