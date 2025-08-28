@@ -105,42 +105,33 @@
             </div>
         </div>
     </section>
+
     <section class="carrusel section">
-        <h2>Mis Recuerdos</h2>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="imagen/bride-1837148_640.jpg" alt="Foto 1">
-                    <div class="caption">Primera cita</div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="imagen/shoes-8070908_640.jpg" alt="Foto 2">
-                    <div class="caption">Fiesta de compromiso</div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="imagen/wedding-6787691_1280.jpg" alt="Foto 3">
-                    <div class="caption">Viaje inolvidable</div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="imagen/wedding-6873668_640.jpg" alt="Foto 4">
-                    <div class="caption">Recuerdos familiares</div>
-                </div>
-            </div>
-            <!-- Paginación -->
-            <div class="swiper-pagination"></div>
-        </div>
+        <section class="carrusel section">
+            <h2>Mis Recuerdos</h2>
 
-        <!-- Miniaturas -->
-        <div class="swiper mySwiperThumbs">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="imagen/bride-1837148_640.jpg" alt="Mini 1"></div>
-                <div class="swiper-slide"><img src="imagen/shoes-8070908_640.jpg" alt="Mini 2"></div>
-                <div class="swiper-slide"><img src="imagen/wedding-6787691_1280.jpg" alt="Mini 3"></div>
-                <div class="swiper-slide"><img src="imagen/wedding-6873668_640.jpg" alt="Mini 4"></div>
+            <!-- Carrusel principal -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="imagen/bride-1837148_640.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="imagen/shoes-8070908_640.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="imagen/wedding-6787691_1280.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="imagen/wedding-6873668_640.jpg" alt=""></div>
+                </div>
+                <div class="swiper-pagination"></div>
             </div>
-        </div>
+
+            <!-- Miniaturas overlay -->
+            <div class="swiper mySwiperThumbs-overlay">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="imagen/bride-1837148_640.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="imagen/shoes-8070908_640.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="imagen/wedding-6787691_1280.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="imagen/wedding-6873668_640.jpg" alt=""></div>
+                </div>
+            </div>
+        </section>
     </section>
-
     <!--Ubicacion-->
     <section class="ubicacion" id="ubicacion">
         <h2 class="titulo-seccion">Ubicación</h2>
@@ -242,16 +233,22 @@
     </script>
 
     <script>
-        const swiperThumbs = new Swiper(".mySwiperThumbs", {
-            spaceBetween: 10,
+        const swiperThumbs = new Swiper(".mySwiperThumbs-overlay", {
+            spaceBetween: 8,
             slidesPerView: 4,
             watchSlidesProgress: true,
             breakpoints: {
                 0: {
-                    slidesPerView: 2
+                    slidesPerView: 2,
+                    spaceBetween: 8
                 },
-                500: {
-                    slidesPerView: 4
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 8
+                },
+                1200: {
+                    slidesPerView: 6,
+                    spaceBetween: 8
                 }
             }
         });
@@ -259,22 +256,22 @@
         const swiperMain = new Swiper(".mySwiper", {
             loop: true,
             autoplay: {
-                delay: 5000,
+                delay: 6000,
                 disableOnInteraction: false,
             },
             effect: "fade",
             fadeEffect: {
                 crossFade: true
-
             },
-            speed: 4000,
+            speed: 3000,
             pagination: {
                 el: ".swiper-pagination",
-                clickable: true,
+                clickable: true
             },
             thumbs: {
                 swiper: swiperThumbs
-            }
+            }, // 🟢 apunta a la variable correcta
+            autoHeight: false
         });
     </script>
 
